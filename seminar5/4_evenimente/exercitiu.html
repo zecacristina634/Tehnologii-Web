@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload=()=>{
+            const text=document.getElementById('myText');
+            const textDblClicked=new Event('textDblClicked');
+
+            const handledEvent=()=>{
+                console.log('Evenimentul a fost declansat.');
+                text.style.color='red';
+            }
+
+            const handledDoubleClick=()=>{
+                console.log('Ai facut dublu click pe text.');
+                document.dispatchEvent(textDblClicked);
+            }
+
+            text.addEventListener('dblclick', handledDoubleClick);
+            document.addEventListener('textDblClicked',handledEvent);
+        }
+    </script>
+</head>
+<body>
+    <p id="myText"> Da dublu click pe acest text!</p>
+</body>
+</html>

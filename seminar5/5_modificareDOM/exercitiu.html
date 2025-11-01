@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        window.onload=() =>{
+            var form=document.getElementById('form');
+
+            var formSubmitHandler=(e) =>{
+                e.preventDefault();
+                
+                var nume=document.getElementById('nume').value;
+                var telefon=document.getElementById('telefon').value;
+                var tabel=document.getElementById('table');
+
+                var rand=document.createElement('tr');
+                var numeTabel=document.createElement('td');
+                var telefonTabel=document.createElement('td')
+
+                numeTabel.textContent=nume;
+                telefonTabel.textContent=telefon;
+
+                rand.appendChild(numeTabel);
+                rand.appendChild(telefonTabel);
+                tabel.appendChild(rand);
+                
+            }
+            form.onsubmit=formSubmitHandler;
+        }
+    </script>
+</head>
+<body>
+    <h1>Agenda telefonica</h1>
+    <table border="1" id="table">
+        <tr>
+            <th>Nume</th>
+            <th>Telefon</th>
+        </tr>
+    </table>
+    <h2>Adauga contact nou</h2>
+    <form id="form">
+        <input type="text" id="nume"/> </br> </br>
+        <input type="text" id="telefon"/>
+        <button type="submit" id="submitBtn">Adauga</button>
+    </form>
+</body>
+</html>
